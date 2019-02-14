@@ -10,17 +10,22 @@ import UIKit
 
 class ToDoListViewController: UITableViewController {
 
-    var itemArray = ["Shop", "Call home", "Learn English"]
+    //MARK: - Private properties
 
-    // MARK: — View Lifecycle
+    var itemArray = ["Shop", "Call home", "Learn English"]
+    var defaults = UserDefaults.standard
+
+    //MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        if let items = defaults.array(forKey: "ToDoListArray") as? [String] {
+            itemArray = items
+        }
     }
 
-    // MARK: - Tableview Datasource Methods
+    //MARK: - Tableview Datasource Methods
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,7 +63,7 @@ class ToDoListViewController: UITableViewController {
 
         var textField = UITextField()
 
-        let alert = UIAlertController(title: "Add New ToDo Item", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add New To Do Item", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             //what will happen once the user clicks the Add New Item button on UIALert
 
@@ -67,6 +72,8 @@ class ToDoListViewController: UITableViewController {
             } else {
                 return
             }
+
+            self.defaults.set(self.itemArray, forKey: "ToDoListArray")
 
             self.tableView.reloadData()
         }
