@@ -12,7 +12,7 @@ class ToDoListViewController: UITableViewController {
 
     //MARK: - Private properties
 
-    var itemArray = ["Shop", "Call home", "Learn English"]
+    var itemArray = ["Shop", "Call home", "Learn English", "fff", "j", "g", "a", "s", "l", "f", "d", "r", "j", "g", "a", "s", "l", "f", "d", "r"]
     var defaults = UserDefaults.standard
 
     //MARK: - Lifecycle
@@ -35,7 +35,8 @@ class ToDoListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "ToDoItemCell")
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
         cell.textLabel?.text = itemArray[indexPath.row]
 
         return cell
