@@ -24,6 +24,7 @@ class ToDoListViewController: UITableViewController {
 
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
 
+
         loadItems()
 
 
@@ -77,9 +78,8 @@ class ToDoListViewController: UITableViewController {
 
         let alert = UIAlertController(title: "Add New To Do Item", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+
             //what will happen once the user clicks the Add New Item button on UIALert
-
-
             let newItem = Item(context: self.context)
             newItem.title = textField.text!
             newItem.done = false
@@ -89,9 +89,7 @@ class ToDoListViewController: UITableViewController {
             } else {
                 return
             }
-
             self.saveItems()
-
         }
 
         alert.addTextField { (alertTextField) in
@@ -113,18 +111,39 @@ class ToDoListViewController: UITableViewController {
         } catch {
             print("Error saving context \(error)")
         }
-
         self.tableView.reloadData()
     }
 
-    func loadItems() {
-        let request: NSFetchRequest<Item> = Item.fetchRequest()
+
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
 
         do {
             itemArray = try context.fetch(request)
         } catch {
             print("Error fetching data from context \(error)")
         }
+
+        tableView.reloadData()
+
+    }
+
+
+}
+
+
+    //MARK: - Search bar methods
+
+extension ToDoListViewController: UISearchBarDelegate {
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+
+        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+
+        loadItems(with: request)
 
     }
 
