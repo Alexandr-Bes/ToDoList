@@ -13,6 +13,7 @@
 		FA35A2A3221499A200CDFA5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA35A2A2221499A200CDFA5C /* Assets.xcassets */; };
 		FA35A2A6221499A200CDFA5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA35A2A4221499A200CDFA5C /* LaunchScreen.storyboard */; };
 		FA35A2AE2214A65600CDFA5C /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35A2AD2214A65600CDFA5C /* ToDoListViewController.swift */; };
+		FAD2706B2226AA340080CC53 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2706A2226AA340080CC53 /* CategoryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		FA35A2A5221499A200CDFA5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA35A2A7221499A200CDFA5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA35A2AD2214A65600CDFA5C /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
+		FAD2706A2226AA340080CC53 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		FA35A29A2214999F00CDFA5C /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				FA35A29B2214999F00CDFA5C /* AppDelegate.swift */,
 				FA35A2AF2214DDB100CDFA5C /* Model */,
 				FA35A2B02214DDC300CDFA5C /* View */,
 				FA35A2B12214DDD500CDFA5C /* Controller */,
@@ -84,9 +87,9 @@
 		FA35A2B12214DDD500CDFA5C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FA35A29B2214999F00CDFA5C /* AppDelegate.swift */,
-				FA35A2AD2214A65600CDFA5C /* ToDoListViewController.swift */,
 				FA35A2A4221499A200CDFA5C /* LaunchScreen.storyboard */,
+				FAD2706A2226AA340080CC53 /* CategoryTableViewController.swift */,
+				FA35A2AD2214A65600CDFA5C /* ToDoListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				FA35A2AE2214A65600CDFA5C /* ToDoListViewController.swift in Sources */,
 				FA23CFA02220319200EEE276 /* DataModel.xcdatamodeld in Sources */,
 				FA35A29C2214999F00CDFA5C /* AppDelegate.swift in Sources */,
+				FAD2706B2226AA340080CC53 /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
